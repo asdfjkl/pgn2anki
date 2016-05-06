@@ -59,4 +59,4 @@ moves, but also the strategy and concepts of the opening...
 
 Niklas Fikas for [python-chess](https://github.com/niklasf/python-chess)
 
-Patrick Sabin [python-fen](https://pypi.python.org/pypi/fen)
+Patrick Sabin for [python-fen](https://pypi.python.org/pypi/fen)
