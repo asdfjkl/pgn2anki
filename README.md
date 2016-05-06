@@ -12,7 +12,7 @@ the moves.
 - You create an opening repertoire as a PGN file (e.g. with 
 [Jerry](https://www.github.com/asdfjkl/jerry))
 - use pgn2anki to automatically create a number of board images and a textfile
-- import these into [Jerry](http://http://ankisrs.net)
+- import these into [Anki](http://http://ankisrs.net)
 - memorize your lines with Anki
 - PROFIT!!!
 
