@@ -1,5 +1,6 @@
 # pgn2anki
-Convert (chess) PGN with opening repertoire to Anki deck 
+Convert (chess) PGN with opening repertoire to [Anki](http://ankisrs.net)
+deck 
 
 # The Problem
 
