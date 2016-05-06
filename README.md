@@ -1,2 +1,2 @@
-# png2anki
-Convert PNG with opening repertoire to Anki deck 
+# pgn2anki
+Convert (chess) PGN with opening repertoire to Anki deck 

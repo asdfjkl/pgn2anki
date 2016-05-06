@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+import chess.pgn
+import chess
+import fen
+import md5
+import argparse
+
+parser = argparse.ArgumentParser(
+    description='Create a chess board images and txt file from pgn for anki decks')
+parser.add_argument('--pgn', help='filename of pgn')
+parser.add_argument('--depth', help='int denoting how deep to go from root node')
+parser.add_argument('--player', help='player, either White or Black')
+
+
+args = parser.parse_args()
+
+if(args.pgn == None or args.depth == None or args.player == None):
+    parser.print_usage()
+    sys.exit(1)
+
+filename_pgn = args.pgn
+filename_out = "import_anki.txt"
+depth = int(args.depth)
+player_input = args.player
+
+pgn = open(filename_pgn)
+game = chess.pgn.read_game(pgn)
+
+node = game
+
+card_list = []
+player = chess.WHITE
+flip_board = False
+if(player_input == "Black" or player_input == "black"):
+    player = chess.BLACK
+    flip_board = True
+
+def node2png(node, depth, maxdepth):
+    global card_list
+    global player
+    global flip_board
+    if not node.is_end() and not depth >= maxdepth:
+        trn = node.board().turn
+        if(trn == player):
+            # first print the current node
+            fen_string = node.board().fen()
+            fen_im = fen.draw_board(fen_string, flip=flip_board)
+            m = md5.new(fen_string)
+            fn = m.hexdigest()+".png"
+            fen_im.save(fn)
+            san = "?"
+            if not node.is_end():
+                child = node.variation(0)
+                move = child.move
+                if move != None:
+                    san = node.board().san(move)
+            # add link for textfile
+            card_list.append('<img src="'+ fn +'">; '+san) 
+        for node_i in node.variations:
+            node2png(node_i, depth+1, maxdepth)
+
+
+node2png(node, 0, depth)
+
+pgn.close()
+
+f = open(filename_out, "w")
+for line in card_list:
+    f.write(line)
+    f.write("\n")
+f.close()
