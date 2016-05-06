@@ -55,3 +55,8 @@ Mark "Allow HTML" in Import Dialog, set card type to "Basic".
 Learn, learn, leran. And remember to not just memorize the
 moves, but also the strategy and concepts of the opening...
 
+# CREDITS
+
+Niklas Fikas for [python-chess](https://github.com/niklasf/python-chess)
+
+Patrick Sabin [python-fen](https://pypi.python.org/pypi/fen)
