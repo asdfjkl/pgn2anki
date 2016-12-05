@@ -52,7 +52,7 @@ Mark "Allow HTML" in Import Dialog, set card type to "Basic".
 
 # FINALLY
 
-Learn, learn, leran. And remember to not just memorize the
+Learn, learn, learn. And remember to not just memorize the
 moves, but also the strategy and concepts of the opening...
 
 # CREDITS
