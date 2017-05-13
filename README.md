@@ -12,7 +12,7 @@ the moves.
 
 - You create an opening repertoire as a PGN file (e.g. with 
 [Jerry](https://jerry-chess.github.io/))
-- use pgn2anki to automatically create a CSV file
+- use pgn2anki to automatically convert the PGN into a CSV file
 - import this CSV into [Anki](http://http://ankisrs.net)
 - memorize your lines with Anki
 - PROFIT!!!
