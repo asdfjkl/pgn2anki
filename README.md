@@ -29,7 +29,7 @@ the moves.
 - Download the binary package from the [release page](https://github.com/asdfjkl/pgn2anki/releases/)
 - unzip into a directory
 - open a DOS-Shell (cmd.exe) and change to the directory
-- run `pgn2anki.exe -pgn FILENAME.pgn -depth 5 -player White`. 
+- run `pgn2anki.exe --pgn FILENAME.pgn --depth 5 --player White`. 
 This will take the first 5 moves from root of FILENAME.pgn and extract positions whenever White is to move.
 You can omit the depth parameter if you want, then the whole PGN is used.
 - a file `import_anki.csv` is created.
@@ -47,7 +47,7 @@ open command prompt. clone repo:
 
 then 
 
-`./pgn2anki -pgn FILENAME.pgn -depth 5 -player White`
+`./pgn2anki --pgn FILENAME.pgn --depth 5 --player White`
 
 will take the first 5 moves from root of FILENAME.pgn and
 extract positions whenever White is to move.
