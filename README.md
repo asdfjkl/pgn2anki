@@ -1,6 +1,7 @@
 # pgn2anki
-Convert (chess) PGN with opening repertoire to [Anki](http://ankisrs.net)
-deck 
+
+Convert the positions of a (chess) PGN file with opening lines into an [Anki](http://ankisrs.net)
+deck.
 
 # The Problem
 
@@ -11,14 +12,32 @@ the moves.
 
 - You create an opening repertoire as a PGN file (e.g. with 
 [Jerry](https://www.github.com/asdfjkl/jerry))
-- use pgn2anki to automatically create a number of board images and a textfile
-- import these into [Anki](http://http://ankisrs.net)
+- use pgn2anki to automatically create a CSV file
+- import this CSV into [Anki](http://http://ankisrs.net)
 - memorize your lines with Anki
 - PROFIT!!!
 
 # Steps
 
-Install `python 2.7` and `python-pil`
+## Preliminaries
+
+- For Anki Desktop you need to install the [FEN chess visualizer](https://ankiweb.net/shared/info/2923601993) first.
+- Ankidroid (Android) can already display FEN strings.
+
+## Windows
+
+- Download the binary package from the [release page](https://github.com/asdfjkl/pgn2anki/releases/)
+- unzip into a directory
+- open a DOS-Shell (cmd.exe) and change to the directory
+- run `pgn2anki.exe -pgn FILENAME.pgn -depth 5 -player White`. 
+This will take the first 5 moves from root of FILENAME.pgn and extract positions whenever White is to move.
+You can omit the depth parameter if you want, then the whole PGN is used.
+- a file `import_anki.csv` is created.
+- import this file as a basic deck (front/back) into Anki (File -> Import).
+
+## Linux / OS X
+
+Ensure you have a working installation of python 2.7 and git (default on OS X).
 
 open command prompt. clone repo:
 
@@ -31,14 +50,7 @@ then
 `./pgn2anki -pgn FILENAME.pgn -depth 5 -player White`
 
 will take the first 5 moves from root of FILENAME.pgn and
-create board images whenever White is to move.
-
-Next, copy all generated images to your Anki `collections.media` 
-directory, i.e. in Linux that is 
-
-`~/Anki/profile name/collection.media` 
-
-For other OS'es check the [Anki manual](http://ankisrs.net/docs/manual.html#managing-files-and-your-collection)
+extract positions whenever White is to move.
 
 Start Anki. Create new deck. Open deck. 
 
@@ -46,9 +58,7 @@ File-> Import
 
 Navigate to pgn2anki folder
 
-Open "import_anki.txt"
-
-Mark "Allow HTML" in Import Dialog, set card type to "Basic".
+Open "import_anki.csv"
 
 # FINALLY
 
@@ -58,5 +68,3 @@ moves, but also the strategy and concepts of the opening...
 # CREDITS
 
 Niklas Fikas for [python-chess](https://github.com/niklasf/python-chess)
-
-Patrick Sabin for [python-fen](https://pypi.python.org/pypi/fen)
